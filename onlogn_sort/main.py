@@ -1,4 +1,5 @@
 from mergeSort import *
+from quickSort import *
 from sortTestHelper import *
 
 n = 10 # length of gererated array
@@ -14,3 +15,4 @@ a5 = arr[:]
 # test section
 measureSort(mergeSort, a1)
 measureSort(mergeSortBU, a2)
+measureSort(quickSort, a3)

@@ -68,7 +68,7 @@ def mergeSortBU(arr):
         while i + sz < len(arr):
             if arr[i+sz] < arr[i+sz-1]:
                 if sz < 15:
-                    insertionSortM(arr, i, i+sz+sz-1)
+                    insertionSortM(arr, i, min(i+sz+sz-1, len(arr)-1))
                 else:
                     __merge(arr, i, i+sz-1, min(i+sz+sz-1, len(arr)-1))
             i = i + sz + sz
