@@ -1,7 +1,7 @@
 from mergeSort import *
 from sortTestHelper import *
 
-n = 1000 # length of gererated array
+n = 10 # length of gererated array
 arr = generateArray(n)
 
 # copy generated array for different test
@@ -13,3 +13,4 @@ a5 = arr[:]
 
 # test section
 measureSort(mergeSort, a1)
+measureSort(mergeSortBU, a2)
