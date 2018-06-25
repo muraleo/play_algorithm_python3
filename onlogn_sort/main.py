@@ -1,8 +1,10 @@
 from mergeSort import *
 from quickSort import *
+from quickSortTwoWay import *
+from quickSortThreeWay import *
 from sortTestHelper import *
 
-n = 10 # length of gererated array
+n = 1000 # length of gererated array
 arr = generateArray(n)
 
 # copy generated array for different test
@@ -16,3 +18,5 @@ a5 = arr[:]
 measureSort(mergeSort, a1)
 measureSort(mergeSortBU, a2)
 measureSort(quickSort, a3)
+measureSort(quickSort2, a4)
+measureSort(quickSort3, a5)

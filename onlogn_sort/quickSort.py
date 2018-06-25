@@ -1,5 +1,14 @@
+from random import randint
+
 def __partition(arr, l, r):
+
+    # 1st optimization, randomly select a v from [l, r), because
+    # worse for nearly ordered array, which time complexity is o(n^2)
+    randonIndex = randint(l, r)
+    arr[l], arr[randonIndex] = arr[randonIndex], arr[l]
+
     v,i = arr[l],l
+
     # arr[l+1,i-1] < v, arr[i, j-1] > v
     for j in range(l+1, r+1):
         if arr[j] <= v:
@@ -22,6 +31,5 @@ def __quickSort(arr, l, r):
 def quickSort(arr):
     if not arr:
         return None
-
     __quickSort(arr, 0, len(arr)-1)
     return arr
