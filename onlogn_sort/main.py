@@ -15,7 +15,7 @@ a4 = arr[:]
 a5 = arr[:]
 
 # test section
-measureSort(mergeSort, a1)
+measureSort(mergeSort, a1) 
 measureSort(mergeSortBU, a2)
 measureSort(quickSort, a3)
 measureSort(quickSort2, a4)

@@ -3,7 +3,7 @@ from random import randint
 
 def generateArray(n=100):
     # randint can generate random number from [start, end]
-    return [randint(0, 1000000) for x in range(n)]
+    return [randint(0, 100) for x in range(n)]
 
 def measureSort(func, arr):
     start = time.time()
