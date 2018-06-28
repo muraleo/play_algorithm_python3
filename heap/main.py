@@ -1,12 +1,6 @@
 from heap import MaxHeap
+from sortTestHelper import *
+from heapSort1 import *
 
-testHeap = MaxHeap()
-testHeap.insert(2)
-testHeap.insert(3)
-testHeap.insert(1)
-testHeap.insert(5)
-testHeap.insert(0)
-testHeap.insert(7)
-testHeap.insert(4)
-testHeap.extractMax()
-testHeap.printHeap()
+a1 = generateArray(100000)
+measureSort(heapSort1, a1)
