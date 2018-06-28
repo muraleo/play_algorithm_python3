@@ -6,8 +6,7 @@ class MaxHeap(object):
             self.__heap[n], self.__heap[(n+1)//2-1] = self.__heap[(n+1)//2-1], self.__heap[n]
             n = (n+1)//2-1
 
-    def __shiftDown(self):
-        i = 0
+    def __shiftDown(self, i=0):
         while 2*i+1 < self.__count:
             j = 2 * i +1
             if j+1 < self.__count and self.__heap[j+1] > self.__heap[j] :
@@ -18,11 +17,21 @@ class MaxHeap(object):
             self.__heap[i], self.__heap[j] = self.__heap[j], self.__heap[i]
             i = j
 
+    def __heapify(self):
+        for i in range(self.__count//2+1, -1, -1):
+            self.__shiftDown(i)
+
     # public
-    def __init__(self, max=1000):
-        self.__heap = [] # heap list start from 0
+    # def __init__(self, max=1000):
+    #     self.__heap = [] # heap list start from 0
+    #     self.__capacity = max
+    #     self.__count = 0
+
+    def __init__(self, arr=[], max=1000):
+        self.__heap = arr
         self.__capacity = max
-        self.__count = 0
+        self.__count = len(arr)
+        self.__heapify()
 
     def size(self):
         return self.__count

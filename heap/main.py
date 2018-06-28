@@ -1,6 +1,9 @@
 from heap import MaxHeap
 from sortTestHelper import *
-from heapSort1 import *
+from heapSort import *
 
-a1 = generateArray(100000)
+a = generateArray(1000)
+a1 = a[:]
+a2 = a[:]
 measureSort(heapSort1, a1)
+measureSort(heapSort2, a2)

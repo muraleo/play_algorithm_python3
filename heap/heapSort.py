@@ -12,3 +12,13 @@ def heapSort1(arr):
         arr[i] = maxHeap.extractMax()
 
     return arr
+
+def heapSort2(arr):
+    if not arr:
+        return None
+
+    maxHeap = MaxHeap(arr)
+
+    for i in range(len(arr)-1, -1, -1):
+        arr[i] = maxHeap.extractMax()
+    return arr
