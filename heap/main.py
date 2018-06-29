@@ -5,5 +5,8 @@ from heapSort import *
 a = generateArray(1000)
 a1 = a[:]
 a2 = a[:]
+a3 = a[:]
+
 measureSort(heapSort1, a1)
 measureSort(heapSort2, a2)
+measureSort(heapSortInPlace, a3)

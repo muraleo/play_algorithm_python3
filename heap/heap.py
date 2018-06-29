@@ -2,9 +2,9 @@ class MaxHeap(object):
     # private
     def __shiftUp(self, n):
         # This heap index start from 0
-        while n > 0 and self.__heap[n] > self.__heap[(n+1)//2-1]:
-            self.__heap[n], self.__heap[(n+1)//2-1] = self.__heap[(n+1)//2-1], self.__heap[n]
-            n = (n+1)//2-1
+        while n > 0 and self.__heap[n] > self.__heap[(n-1)//2]:
+            self.__heap[n], self.__heap[(n-1)//2] = self.__heap[(n-1)//2], self.__heap[n]
+            n = (n-1)//2
 
     def __shiftDown(self, i=0):
         while 2*i+1 < self.__count:
