@@ -41,7 +41,7 @@ def heapSortInPlace(arr):
     for i in range((len(arr)-1)//2, -1, -1):
         __shiftDown(arr, len(arr), i)
 
-    #extract max then move it to array
+    #extract max then move it to array's end
     for i in range(len(arr)-1, -1, -1):
         arr[i], arr[0] = arr[0], arr[i]
         __shiftDown(arr, i, 0)
