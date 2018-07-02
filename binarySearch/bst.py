@@ -1,9 +1,12 @@
-class BST(object):
+class Node(object):
     def __init__(self, key, value, left = None, right = None):
         self.key = key
-        self.value = value
+        self.value = key
         self.left = left
         self.right = right
+
+class BST(object):
+    def __init__(self):
         self.root = None
         self.count = 0
     
@@ -14,7 +17,19 @@ class BST(object):
         return self.root == None
 
     def insert(self, key, value):
-        root = self.__insert(self.root, key, value)
+        self.root = self.__insert(self.root, key, value)
 
     # private
-    def __insert(self, root, key, value):
+    def __insert(self, node, key, value):
+        # Insert node(key, value) into a BST whose root is root
+        # Return the root after inserting this node
+        if node is None:
+            self.count += 1
+            return Node(key, value)
+        if key == node.key:
+            node.value = value
+        elif key < node.key:
+            node.left = __insert(node.left, key, value)
+        else:
+            node.right = __insert(node.right, key, value)
+        return node
