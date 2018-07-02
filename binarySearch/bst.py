@@ -1,7 +1,7 @@
 class Node(object):
     def __init__(self, key, value, left = None, right = None):
         self.key = key
-        self.value = key
+        self.value = value
         self.left = left
         self.right = right
 
@@ -48,6 +48,13 @@ class BST(object):
                 temp = temp.left
         return None
 
+    def preOrder(self, node):
+        temp = self.node
+        while node is not None:
+            print(node.value)
+            self.preOrder(node.left)
+            self.preOrder(node.right)
+            
     # private
     def __insert(self, node, key, value):
         # Insert node(key, value) into a BST whose root is root
@@ -58,7 +65,7 @@ class BST(object):
         if key == node.key:
             node.value = value
         elif key < node.key:
-            node.left = __insert(node.left, key, value)
+            node.left = self.__insert(node.left, key, value)
         else:
-            node.right = __insert(node.right, key, value)
+            node.right = self.__insert(node.right, key, value)
         return node
