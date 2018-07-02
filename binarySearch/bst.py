@@ -32,7 +32,22 @@ class BST(object):
             else:
                 temp = temp.left
         return False
+
+    # sometime search return:
+    #   Node
+    #   Value: key must exist
+    def search(self, key):
+        temp = self.root
         
+        while temp is not None:
+            if temp.key == key:
+                return temp.value
+            elif temp.key < key:
+                temp = temp.right
+            else:
+                temp = temp.left
+        return None
+
     # private
     def __insert(self, node, key, value):
         # Insert node(key, value) into a BST whose root is root
