@@ -54,7 +54,21 @@ class BST(object):
             print(node.value)
             self.preOrder(node.left)
             self.preOrder(node.right)
-            
+
+    def inOrder(self, node):
+        temp = self.node
+        while node is not None:
+            self.preOrder(node.left)
+            print(node.value)
+            self.preOrder(node.right)
+
+    def postOrder(self, node):
+        temp = self.node
+        while node is not None:
+            self.preOrder(node.left)
+            self.preOrder(node.right)
+            print(node.value)
+
     # private
     def __insert(self, node, key, value):
         # Insert node(key, value) into a BST whose root is root
