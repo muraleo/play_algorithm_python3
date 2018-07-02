@@ -100,6 +100,21 @@ class BST(object):
         else:
             return self.__maximum(self, self.__root)
 
+    # remove min key node
+    def removeMin(self):
+        if root is None:
+            return None
+
+        __removeMin(self, self.root)
+
+    # remove max key node
+    def removeMax(self):
+        if root is None:
+            return None
+        
+        __removeMax(self, self.root)
+
+
 
     # private
     def __insert(self, node, key, value):
@@ -125,3 +140,17 @@ class BST(object):
         if node.right is not None:
             return self.__maximum(node.right)
         return node
+
+    def __removeMin(self, node):
+        if node.left == None:
+            return node.right # two situations: right is null or a tree
+        else:
+            node.left = self.__removeMin(node.left)
+            return node.left
+
+    def __removeMax(self, node):
+        if node.right == None:
+            return node.left
+        else:
+            node.right = self.__removeMax(node.right)
+            return node.right
