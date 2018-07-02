@@ -1,3 +1,5 @@
+from collections import deque
+
 class Node(object):
     def __init__(self, key, value, left = None, right = None):
         self.key = key
@@ -48,6 +50,7 @@ class BST(object):
                 temp = temp.left
         return None
 
+    # DFS --- Depth First Search
     def preOrder(self, node):
         temp = self.node
         while node is not None:
@@ -68,6 +71,20 @@ class BST(object):
             self.preOrder(node.left)
             self.preOrder(node.right)
             print(node.value)
+    
+    # BFS --- Breadth First Search, always need a queue
+    def levelOrder(self, node):
+        q = deque()
+        q.append(self.root)
+
+        while q.count != 0:
+            temp = Node(q[-1])
+            print(temp.value)
+
+            if temp.left is not None:
+                q.appendleft(temp.left)
+            if temp.right is not None:
+                q.appendleft(temp.right)
 
     # private
     def __insert(self, node, key, value):
