@@ -86,6 +86,21 @@ class BST(object):
             if temp.right is not None:
                 q.appendleft(temp.right)
 
+    # find the minimum node in this tree
+    def minimum(self):
+        if self.count == 0:
+            return None
+        else:
+            return self.__minimum(self, self.__root)
+
+    # find the maximum node in this tree
+    def maximum(self):
+        if self.count == 0:
+            return None
+        else:
+            return self.__maximum(self, self.__root)
+
+
     # private
     def __insert(self, node, key, value):
         # Insert node(key, value) into a BST whose root is root
@@ -99,4 +114,14 @@ class BST(object):
             node.left = self.__insert(node.left, key, value)
         else:
             node.right = self.__insert(node.right, key, value)
+        return node
+
+    def __minimum(self, node):
+        if node.left is not None:
+            return self.__minimum(node.left)
+        return node
+
+    def __maximum(self, node):
+        if node.right is not None:
+            return self.__maximum(node.right)
         return node
