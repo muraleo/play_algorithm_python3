@@ -10,6 +10,7 @@ a2 = a[:]
 target = randint(0, 100)
 testbst = BST()
 testbst.insert(2, 3)
+print(testbst.contain(3))
 
 
 measureSort(binarySearchIter, a1, target)
