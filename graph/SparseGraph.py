@@ -18,7 +18,7 @@ class SparseGraph(object):
 
     # add new edge between vector v and vector w
     def addEdge(self, v, w):
-        if v >= 0 and v < n and w >=0 and w < n:
+        if v >= 0 and v < self.__n and w >=0 and w < self.__n:
             if self.__directed is False and v != w:
                 self.__g[v].append(w)
                 if not self.hasEdge(v, w):
@@ -28,7 +28,11 @@ class SparseGraph(object):
 
     # check if there is an edge between v and w
     def hasEdge(self, v, w):
-        if v >= 0 and v < n and w >=0 and w < n:
+        if v >= 0 and v < self.__n and w >=0 and w < self.__n:
             return w in self.__g[v]
         else:
             raise Exception("Vector not in the graph!")
+
+    def show(self):
+        for i in self.__g:
+            print(i)

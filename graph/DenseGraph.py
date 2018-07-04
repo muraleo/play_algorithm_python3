@@ -19,7 +19,7 @@ class DenseGraph(object):
 
     # add new edge between vector v and vector w
     def addEdge(self, v, w):
-        if v >= 0 and v < n and w >=0 and w < n:
+        if v >= 0 and v < self.__n and w >=0 and w < self.__n:
             if self.__directed is False:
                 self.__g[v][w] = 1
                 if not self.hasEdge(v, w):
@@ -29,7 +29,11 @@ class DenseGraph(object):
 
     # check if there is an edge between v and w
     def hasEdge(self, v, w):
-        if v >= 0 and v < n and w >=0 and w < n:
+        if v >= 0 and v < self.__n and w >=0 and w < self.__n:
             return self.__g[v][w]
         else:
             raise Exception("Vector not in the graph!")
+
+    def show(self):
+        for i in self.__g:
+            print(i)
