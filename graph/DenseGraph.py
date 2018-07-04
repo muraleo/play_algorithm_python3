@@ -24,8 +24,12 @@ class DenseGraph(object):
                 self.__g[v][w] = 1
                 if not self.hasEdge(v, w):
                     self.__m += 1
+        else:
+            raise Exception("Vector not in the graph!")
 
     # check if there is an edge between v and w
     def hasEdge(self, v, w):
         if v >= 0 and v < n and w >=0 and w < n:
             return self.__g[v][w]
+        else:
+            raise Exception("Vector not in the graph!")
