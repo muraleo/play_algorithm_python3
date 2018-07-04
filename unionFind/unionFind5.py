@@ -12,9 +12,10 @@ class UnionFind5(object):
                 p = self.__parent[self.__parent[p]] # path compression
             return p
 
-            if p != self.__parent[p]:
-                self.__parent[p] = self.find(self.__parent[p])
-                return self.__parent[p]
+            # Final optimization
+            # if p != self.__parent[p]:
+            #     self.__parent[p] = self.find(self.__parent[p])
+            #     return self.__parent[p]
 
     def isConnected(self, p, q):
         return self.find(p) == self.find(q)
