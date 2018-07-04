@@ -114,6 +114,10 @@ class BST(object):
         
         __removeMax(self, self.root)
 
+    # remove node with key
+    def remove(self, key):
+        return self.__remove(self, key, self.root)
+
 
 
     # private
@@ -154,3 +158,30 @@ class BST(object):
         else:
             node.right = self.__removeMax(node.right)
             return node.right
+
+    def __remove(self, key, node):
+        if node is None:
+            return None #this node doesn't exist
+
+        if key < node.key:
+            node.left = self.__remove(self, key, node.left)
+            self.count -= 1
+            return node
+
+        elif key > node.key:
+            node.right = self.__remove(self. key, node.right)
+            self.count -= 1
+            return node
+        
+        else:
+            if node.left is None:
+                return node.right
+            elif node.right is None:
+                return node.left
+            else:
+                temp = self.minimum(node.right)
+                
+                temp.left = node.left
+                temp.right = self._removeMin(self, node.right)
+                self.count -= 1
+                return temp
