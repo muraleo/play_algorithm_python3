@@ -3,6 +3,7 @@ import re
 from DenseGraph import *
 from SparseGraph import * 
 
+# New read graph function
 def ReadGraph(aGraph,filePath):
     graphList=[]
     with open(filePath,'r') as f:
